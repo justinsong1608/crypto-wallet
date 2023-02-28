@@ -1,0 +1,27 @@
+h2,
+h4 {
+  font-family: "Shantell Sans", cursive;
+}
+
+.main-container {
+  background-color: #52616b;
+}
+
+.bitcoin-img {
+  width: 3rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+}
+
+.header-container {
+  background-color: #c9d6df;
+}
+
+#converter-tab {
+  margin-top: 1.6rem;
+}
+
+#wallet-tab {
+  margin-top: 1.6rem;
+}

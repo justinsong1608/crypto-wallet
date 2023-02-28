@@ -1,6 +1,30 @@
+h1,
 h2,
 h4 {
   font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+}
+
+table {
+  font-family: "Shantell Sans", cursive;
+  color: #f0f5f9;
+  font-size: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 0.1rem solid #1e2022;
+}
+
+thead > tr {
+  border-bottom: 0.2rem solid #1e2022;
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
 }
 
 .main-container {
@@ -24,4 +48,8 @@ h4 {
 
 #wallet-tab {
   margin-top: 1.6rem;
+}
+
+#title {
+  text-decoration: underline #1e2022;
 }

@@ -19,6 +19,12 @@
   justify-content: space-between;
 }
 
+.full-col {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 @media screen and (min-width: 768px) {
   .header-container {
     max-width: 1511px;

@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -26,6 +29,54 @@
     </div>
   </header>
   <main class="main-container">
+    <div class="row center">
+      <h1 id="title">TOP 50 COINS</h1>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>24h%</th>
+          <th>Market Cap</th>
+          <th>Volume(24h)</th>
+          <th>Circulating Supply</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Bitcoin(BTC)</td>
+          <td>$23,223.35</td>
+          <td>0.16%</td>
+          <td>$448,328,721,460</td>
+          <td>$11,296,476,378</td>
+          <td>19,303,306</td>
+          <td><i class="fa-solid fa-plus"></i></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ethereum(ETH)</td>
+          <td>$1,623.36</td>
+          <td>0.10%</td>
+          <td>$198,669,992,853</td>
+          <td>$7,648,585,578</td>
+          <td>122,373,866</td>
+          <td><i class="fa-solid fa-plus"></i></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Tether(USDT)</td>
+          <td>$1.00</td>
+          <td>0.00%</td>
+          <td>$70,892,007,930</td>
+          <td>$31,889,702,101</td>
+          <td>70,883,728,838</td>
+          <td><i class="fa-solid fa-plus"></i></td>
+        </tr>
+      </tbody>
+    </table>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

@@ -5,6 +5,10 @@ xhr.addEventListener('load', function () {
   for (var i = 0; i < 50; i++) {
     data.coins.push(xhr.response.data[i]);
   }
+  var $tBody = document.querySelector('tbody');
+  for (var k = 0; k < data.coins.length; k++) {
+    $tBody.appendChild(renderCrypto(data.coins[k]));
+  }
 });
 xhr.send();
 
@@ -48,5 +52,3 @@ function renderCrypto(crypto) {
 
   return $tr;
 }
-
-renderCrypto(crypto);

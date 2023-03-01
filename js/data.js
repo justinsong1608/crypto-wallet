@@ -8,7 +8,7 @@ window.addEventListener('beforeunload', event => {
   localStorage.setItem('cryptocurrency', steralData);
 });
 
-if (localStorage.getItem('code-journal')) {
+if (localStorage.getItem('cryptocurrency')) {
   var previous = localStorage.getItem('cryptocurrency');
   data = JSON.parse(previous);
 }

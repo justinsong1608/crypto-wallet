@@ -1,14 +1,19 @@
 h1,
 h2,
-h4 {
+h4,
+a {
   font-family: "Shantell Sans", cursive;
   color: #1e2022;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 table {
   font-family: "Shantell Sans", cursive;
   color: #f0f5f9;
-  font-size: 0.5rem;
+  font-size: 0.45rem;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;

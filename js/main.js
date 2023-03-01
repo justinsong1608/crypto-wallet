@@ -32,15 +32,15 @@ function renderCrypto(crypto) {
   $tr.appendChild($tdFour);
 
   var $tdFive = document.createElement('td');
-  $tdFive.textContent = parseFloat(crypto.marketCapUsd).toFixed(0);
+  $tdFive.textContent = parseInt(parseFloat(crypto.marketCapUsd).toFixed(0)).toLocaleString();
   $tr.appendChild($tdFive);
 
   var $tdSix = document.createElement('td');
-  $tdSix.textContent = parseFloat(crypto.volumeUsd24Hr).toFixed(0);
+  $tdSix.textContent = parseInt(parseFloat(crypto.volumeUsd24Hr).toFixed(0)).toLocaleString();
   $tr.appendChild($tdSix);
 
   var $tdSeven = document.createElement('td');
-  $tdSeven.textContent = parseFloat(crypto.supply).toFixed(0);
+  $tdSeven.textContent = parseInt(parseFloat(crypto.supply).toFixed(0)).toLocaleString();
   $tr.appendChild($tdSeven);
 
   var $tdEight = document.createElement('td');

@@ -1,9 +1,5 @@
-* {
-  box-sizing: border-box;
-}
-
 .header-container {
-  max-width: 575px;
+  max-width: 767px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }

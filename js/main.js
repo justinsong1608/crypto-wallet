@@ -2,6 +2,9 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://api.coincap.io/v2/assets');
 xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
+  for (var i = 0; i < 50; i++) {
+    data.coins.push(xhr.response.data[i]);
+  }
 });
 xhr.send();
 

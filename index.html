@@ -52,7 +52,35 @@
       </table>
     </div>
     <div data-view="converter-page">
-
+      <div class="row center">
+        <form action="">
+          <div>
+            <label for="currencyone">Currency&#58;</label>
+            <input type="search" name="currencyone" id="currencyone" placeholder="Ex: bitcoin" required>
+          </div>
+          <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
+          <div>
+            <label for="currencytwo">Currency&#58;</label>
+            <input type="search" name="currencytwo" id="currencytwo" placeholder="Ex: usd" required>
+          </div>
+          <div class="converter-flex">
+            <label for="amount">Input the amount to be converted&#58;</label>
+            <input type="text" name="amount" id="amount" size="35" placeholder="Amount">
+          </div>
+          <div class="converter-flex">
+            <button type="submit" id="convert">Convert</button>
+          </div>
+          <div class="converter-flex">
+            <i class="fa-solid fa-arrow-down-long fa-2xl"></i>
+          </div>
+        </form>
+      </div>
+      <div class="row left">
+        <h2 id="total-worth">Total Worth&#58;</h2>
+      </div>
+      <div class="row center">
+        <h1 id="total-calculated">$23,456.00</h1>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>

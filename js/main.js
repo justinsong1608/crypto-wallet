@@ -24,11 +24,11 @@ function renderCrypto(crypto) {
   $tr.appendChild($tdTwo);
 
   var $tdThree = document.createElement('td');
-  $tdThree.textContent = parseFloat(crypto.changePercent24Hr).toFixed(2) + '%';
+  $tdThree.textContent = '$' + parseFloat(crypto.priceUsd).toFixed(2);
   $tr.appendChild($tdThree);
 
   var $tdFour = document.createElement('td');
-  $tdFour.textContent = parseFloat(crypto.priceUsd).toFixed(2);
+  $tdFour.textContent = parseFloat(crypto.changePercent24Hr).toFixed(2) + '%';
   $tr.appendChild($tdFour);
 
   var $tdFive = document.createElement('td');
@@ -40,7 +40,7 @@ function renderCrypto(crypto) {
   $tr.appendChild($tdSix);
 
   var $tdSeven = document.createElement('td');
-  $tdSeven.textContent = parseFloat(crypto.maxSupply).toFixed(0);
+  $tdSeven.textContent = parseFloat(crypto.supply).toFixed(0);
   $tr.appendChild($tdSeven);
 
   var $tdEight = document.createElement('td');

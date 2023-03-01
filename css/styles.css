@@ -29,6 +29,7 @@ thead > tr {
 
 .main-container {
   background-color: #52616b;
+  padding-bottom: 3rem;
 }
 
 .bitcoin-img {
@@ -52,4 +53,10 @@ thead > tr {
 
 #title {
   text-decoration: underline #1e2022;
+}
+
+@media screen and (min-width: 768px) {
+  table {
+    font-size: 1rem;
+  }
 }

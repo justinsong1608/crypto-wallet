@@ -1,0 +1,67 @@
+h1,
+h2,
+h4,
+a {
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+table {
+  font-family: "Shantell Sans", cursive;
+  color: #f0f5f9;
+  font-size: 0.45rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 0.1rem solid #1e2022;
+}
+
+thead > tr {
+  border-bottom: 0.2rem solid #1e2022;
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.main-container {
+  background-color: #52616b;
+  padding-bottom: 3rem;
+}
+
+.bitcoin-img {
+  width: 3rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+}
+
+.header-container {
+  background-color: #c9d6df;
+}
+
+#converter-tab {
+  margin-top: 1.6rem;
+}
+
+#wallet-tab {
+  margin-top: 1.6rem;
+}
+
+#title {
+  text-decoration: underline #1e2022;
+}
+
+@media screen and (min-width: 768px) {
+  table {
+    font-size: 1rem;
+  }
+}

@@ -17,12 +17,18 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .full-col {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+}
+
+.flex {
+  display: flex;
+  flex-basis: 18em;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 768px) {

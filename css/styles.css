@@ -10,6 +10,10 @@ a:hover {
   cursor: pointer;
 }
 
+h2:hover {
+  cursor: pointer;
+}
+
 table {
   font-family: "Shantell Sans", cursive;
   color: #f0f5f9;
@@ -46,6 +50,10 @@ thead > tr {
 
 .header-container {
   background-color: #c9d6df;
+}
+
+.hidden {
+  display: none !important;
 }
 
 #converter-tab {

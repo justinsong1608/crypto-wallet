@@ -2,15 +2,21 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://api.coincap.io/v2/assets');
 xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
-  for (var i = 0; i < 50; i++) {
-    data.coins.push(xhr.response.data[i]);
-  }
-  var $tBody = document.querySelector('tbody');
-  for (var k = 0; k < data.coins.length; k++) {
-    $tBody.appendChild(renderCrypto(data.coins[k]));
+  if (localStorage.getItem('cryptocurrency')) {
+    for (var t = 0; t < data.coins.length; t++) {
+      $tBody.appendChild(renderCrypto(data.coins[t]));
+    }
+  } else {
+    for (var i = 0; i < 50; i++) {
+      data.coins.push(xhr.response.data[i]);
+    }
+    for (var k = 0; k < data.coins.length; k++) {
+      $tBody.appendChild(renderCrypto(data.coins[k]));
+    }
   }
 });
 xhr.send();
+var $tBody = document.querySelector('tbody');
 
 function renderCrypto(crypto) {
   var $tr = document.createElement('tr');
@@ -71,3 +77,38 @@ var $coinsTab = document.querySelector('#coin-tab');
 var $converterTab = document.querySelector('#converter-tab');
 $coinsTab.addEventListener('click', function () { viewSwap('home-page'); });
 $converterTab.addEventListener('click', function () { viewSwap('converter-page'); });
+
+var $form = document.querySelector('form');
+
+function convert(event) {
+  event.preventDefault();
+  var $totalCalculated = document.querySelector('#total-calculated');
+  var currencyOne = $form.elements.currencyone.value;
+  var currencyTwo = $form.elements.currencytwo.value;
+  var amount = $form.elements.amount.value;
+  var yourTotal;
+  var totalSymbol;
+  var totalWorth;
+  for (var i = 0; i < data.coins.length; i++) {
+    var lowerCaseOne = currencyOne.toLowerCase();
+    var firstWordCapOne = lowerCaseOne[0].toUpperCase();
+    if (lowerCaseOne.replace(lowerCaseOne[0], firstWordCapOne) === data.coins[i].name) {
+      yourTotal = parseFloat(parseInt(parseFloat(amount).toFixed(2)) * parseInt(parseFloat(data.coins[i].priceUsd).toFixed(2))).toFixed(2);
+      break;
+    }
+  }
+
+  for (var k = 0; k < data.coins.length; k++) {
+    var lowerCaseTwo = currencyTwo.toLowerCase();
+    var firstWordCapTwo = lowerCaseTwo[0].toUpperCase();
+    if (lowerCaseTwo.replace(lowerCaseTwo[0], firstWordCapTwo) === data.coins[k].name) {
+      totalSymbol = data.coins[k].symbol;
+      totalWorth = yourTotal / parseInt(parseFloat(data.coins[k].priceUsd).toFixed(2));
+      break;
+    }
+  }
+  var finalTotal = $totalCalculated.textContent = parseFloat(totalWorth).toFixed(5) + ' ' + totalSymbol;
+  return finalTotal;
+}
+
+$form.addEventListener('submit', convert);

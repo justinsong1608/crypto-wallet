@@ -61,23 +61,32 @@ function renderCrypto(crypto) {
 
 var $homePage = document.querySelector('div[data-view=home-page]');
 var $converterPage = document.querySelector('div[data-view=converter-page]');
+var $walletPage = document.querySelector('div[data-view=wallet-page]');
 function viewSwap(view) {
   if (view === 'home-page') {
     $homePage.setAttribute('class', '');
     data.view = view;
     $converterPage.setAttribute('class', 'hidden');
+    $walletPage.setAttribute('class', 'hidden');
   } else if (view === 'converter-page') {
     $converterPage.setAttribute('class', '');
     data.view = view;
     $homePage.setAttribute('class', 'hidden');
+    $walletPage.setAttribute('class', 'hidden');
+  } else if (view === 'wallet-page') {
+    $walletPage.setAttribute('class', '');
+    data.view = view;
+    $homePage.setAttribute('class', 'hidden');
+    $converterPage.setAttribute('class', 'hidden');
   }
 }
 
 var $coinsTab = document.querySelector('#coin-tab');
 var $converterTab = document.querySelector('#converter-tab');
+var $walletTab = document.querySelector('#wallet-tab');
 $coinsTab.addEventListener('click', function () { viewSwap('home-page'); });
 $converterTab.addEventListener('click', function () { viewSwap('converter-page'); });
-
+$walletTab.addEventListener('click', function () { viewSwap('wallet-page'); });
 var $form = document.querySelector('form');
 
 function convert(event) {

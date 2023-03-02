@@ -58,9 +58,18 @@ function renderCrypto(crypto) {
   $tr.appendChild($tdEight);
 
   var $iTag = document.createElement('i');
-  $iTag.setAttribute('class', 'fa-solid fa-plus');
-  $tdEight.appendChild($iTag);
-
+  if (data.myWallet.length > 0) {
+    if (data.myWallet.find(item => item.id === crypto.id) === undefined) {
+      $iTag.setAttribute('class', 'fa-solid fa-plus');
+      $tdEight.appendChild($iTag);
+    } else {
+      $iTag.setAttribute('class', 'hidden');
+      $tdEight.appendChild($iTag);
+    }
+  } else {
+    $iTag.setAttribute('class', 'fa-solid fa-plus');
+    $tdEight.appendChild($iTag);
+  }
   return $tr;
 }
 
@@ -136,7 +145,7 @@ function handleClick(event) {
     var $tr = document.querySelectorAll('tr');
     for (var i = 1; i < data.coins.length + 1; i++) {
       if ($closestCrypto === $tr[i]) {
-        // console.log(data.myWallet);
+        data.myWallet.push(data.coins[i - 1]);
       }
     }
   }

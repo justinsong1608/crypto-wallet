@@ -112,3 +112,7 @@ function convert(event) {
 }
 
 $form.addEventListener('submit', convert);
+
+document.addEventListener('DOMContentLoaded', event => {
+  viewSwap(data.view);
+});

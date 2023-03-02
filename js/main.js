@@ -150,3 +150,73 @@ function handleClick(event) {
     }
   }
 }
+
+function renderMyWallet(coin) {
+  var $div = document.createElement('div');
+  $div.setAttribute('class', 'card-wrapper');
+
+  var $h3 = document.createElement('h3');
+  $h3.textContent = coin.name + '(' + coin.symbol + ')';
+  $div.appendChild($h3);
+
+  var $divChild = document.createElement('div');
+  $divChild.setAttribute('class', 'card-container');
+  $div.appendChild($divChild);
+
+  var $pOne = document.createElement('p');
+  var $brOne = document.createElement('br');
+  $pOne.textContent = 'Rank:';
+  $pOne.appendChild($brOne);
+  $pOne.textContent += coin.rank;
+  $divChild.appendChild($pOne);
+
+  var $pTwo = document.createElement('p');
+  var $brTwo = document.createElement('br');
+  $pTwo.textContent = 'Price:';
+  $pTwo.appendChild($brTwo);
+  $pTwo.textContent += '$' + parseFloat(coin.priceUsd).toFixed(2);
+  $divChild.appendChild($pTwo);
+
+  var $pThree = document.createElement('p');
+  var $brThree = document.createElement('br');
+  $pThree.textContent = '24%:';
+  $pThree.appendChild($brThree);
+  $pThree.textContent += parseFloat(coin.changePercent24Hr).toFixed(2) + '%';
+  $divChild.appendChild($pThree);
+
+  var $pFour = document.createElement('p');
+  var $brFour = document.createElement('br');
+  $pFour.textContent = 'Market Cap:';
+  $pFour.appendChild($brFour);
+  $pFour.textContent += parseInt(parseFloat(coin.marketCapUsd).toFixed(0)).toLocaleString();
+  $divChild.appendChild($pFour);
+
+  var $pFive = document.createElement('p');
+  var $brFive = document.createElement('br');
+  $pFive.textContent = 'Volume(24h):';
+  $pFive.appendChild($brFive);
+  $pFive.textContent += parseInt(parseFloat(coin.volumeUsd24Hr).toFixed(0)).toLocaleString();
+  $divChild.appendChild($pFive);
+
+  var $pSix = document.createElement('p');
+  var $brSix = document.createElement('br');
+  $pSix.textContent = 'Circulating Supply:';
+  $pSix.appendChild($brSix);
+  $pSix.textContent += parseInt(parseFloat(coin.supply).toFixed(0)).toLocaleString();
+  $divChild.appendChild($pSix);
+
+  var $pSeven = document.createElement('p');
+  var $brSeven = document.createElement('br');
+  $pSeven.textContent = 'Total:';
+  $pSeven.appendChild($brSeven);
+  $pSeven.textContent += '1';
+  $div.appendChild($pOne);
+
+  var $iTag = document.querySelector('i');
+  $iTag.setAttribute('class', 'fa-solid fa-minus fa-xl');
+  $div.appendChild($iTag);
+
+  return $div;
+}
+
+renderMyWallet();

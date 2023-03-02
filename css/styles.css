@@ -121,6 +121,52 @@ thead > tr {
   color: #c9d6df;
 }
 
+.card-container {
+  padding: 2px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-container > p {
+  color: #1e2022;
+  font-family: "Shantell Sans", cursive;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.card-wrapper > h3 {
+  color: #1e2022;
+  font-family: "Shantell Sans", cursive;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.card-wrapper > p {
+  color: #1e2022;
+  font-family: "Shantell Sans", cursive;
+  text-align: center;
+}
+
+.card-wrapper {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #c9d6df;
+  padding: 5px;
+  flex-basis: 50%;
+  margin: 10px;
+}
+
+.fa-minus {
+  float: right;
+}
+
+#card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 #converter-tab {
   margin-top: 1.6rem;
 }
@@ -144,6 +190,21 @@ thead > tr {
   padding-right: 15rem;
 }
 
+#my-total {
+  color: #c9d6df;
+  margin-top: 5rem;
+}
+
+#total-amount {
+  color: #f0f5f9;
+  font-size: 3rem;
+}
+
+#my-wallet {
+  color: #c9d6df;
+  margin-left: 2rem;
+}
+
 @media screen and (min-width: 768px) {
   table {
     font-size: 1rem;
@@ -151,5 +212,13 @@ thead > tr {
 
   form {
     width: 50%;
+  }
+
+  .card-wrapper {
+    flex-basis: calc(100% / 4);
+  }
+
+  #my-wallet {
+    margin-left: 4rem;
   }
 }

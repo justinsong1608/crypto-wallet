@@ -10,6 +10,10 @@ a:hover {
   cursor: pointer;
 }
 
+h2:hover {
+  cursor: pointer;
+}
+
 table {
   font-family: "Shantell Sans", cursive;
   color: #f0f5f9;
@@ -23,13 +27,64 @@ tr {
   border-bottom: 0.1rem solid #1e2022;
 }
 
+form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  width: 100%;
+  justify-content: space-around;
+}
+
+label,
+input {
+  display: flex;
+  flex-direction: column;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  text-align: center;
+  height: 2rem;
+}
+
+input {
+  border-radius: 5px;
+  border-style: none;
+}
+
+button {
+  border-radius: 5px;
+  border-style: none;
+  width: 7rem;
+  height: 2.5rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #c9d6df;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
 thead > tr {
   border-bottom: 0.2rem solid #1e2022;
+}
+
+.converter-flex {
+  flex-basis: 75%;
+  margin-top: 4rem;
+}
+
+.converter-flex > input {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .center {
   justify-content: center;
   text-align: center;
+}
+
+.left {
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .main-container {
@@ -48,6 +103,19 @@ thead > tr {
   background-color: #c9d6df;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.fa-arrow-right-long {
+  color: #c9d6df;
+  padding-top: 3rem;
+}
+
+.fa-arrow-down-long {
+  color: #c9d6df;
+}
+
 #converter-tab {
   margin-top: 1.6rem;
 }
@@ -60,8 +128,23 @@ thead > tr {
   text-decoration: underline #1e2022;
 }
 
+#total-calculated {
+  margin-top: -1rem;
+  color: #f0f5f9;
+  font-weight: lighter;
+  padding-bottom: 5rem;
+}
+
+#total-worth {
+  padding-right: 15rem;
+}
+
 @media screen and (min-width: 768px) {
   table {
     font-size: 1rem;
+  }
+
+  form {
+    width: 50%;
   }
 }

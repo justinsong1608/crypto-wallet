@@ -159,6 +159,11 @@ thead > tr {
 
 .fa-minus {
   float: right;
+  cursor: pointer;
+}
+
+.fa-plus {
+  cursor: pointer;
 }
 
 #card {

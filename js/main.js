@@ -125,3 +125,19 @@ function convert(event) {
   return finalTotal;
 }
 $form.addEventListener('submit', convert);
+
+var $table = document.querySelector('table');
+$table.addEventListener('click', handleClick);
+function handleClick(event) {
+  if (event.target.nodeName === 'I') {
+    var $closest = event.target.closest('.fa-plus');
+    $closest.setAttribute('class', 'hidden');
+    var $closestCrypto = event.target.closest('tr');
+    var $tr = document.querySelectorAll('tr');
+    for (var i = 1; i < data.coins.length + 1; i++) {
+      if ($closestCrypto === $tr[i]) {
+        // console.log(data.myWallet);
+      }
+    }
+  }
+}

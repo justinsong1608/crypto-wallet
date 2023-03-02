@@ -16,6 +16,11 @@ xhr.addEventListener('load', function () {
   }
 });
 xhr.send();
+
+document.addEventListener('DOMContentLoaded', event => {
+  viewSwap(data.view);
+});
+
 var $tBody = document.querySelector('tbody');
 
 function renderCrypto(crypto) {
@@ -119,9 +124,4 @@ function convert(event) {
   var finalTotal = $totalCalculated.textContent = parseFloat(totalWorth).toFixed(5) + ' ' + totalSymbol;
   return finalTotal;
 }
-
 $form.addEventListener('submit', convert);
-
-document.addEventListener('DOMContentLoaded', event => {
-  viewSwap(data.view);
-});

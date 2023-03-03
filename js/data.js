@@ -1,7 +1,7 @@
-/* exported data */
 var data = {
   view: 'home-page',
-  coins: []
+  coins: [],
+  myWallet: []
 };
 
 window.addEventListener('beforeunload', event => {

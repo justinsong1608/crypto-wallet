@@ -167,10 +167,12 @@ span {
   cursor: pointer;
   margin-bottom: 1rem;
   margin-right: 1rem;
+  color: red;
 }
 
 .fa-plus {
   cursor: pointer;
+  color: lightseagreen;
 }
 
 .overlay {

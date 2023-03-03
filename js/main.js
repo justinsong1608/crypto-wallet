@@ -2,16 +2,20 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://api.coincap.io/v2/assets');
 xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
-  if (localStorage.getItem('cryptocurrency')) {
-    for (var t = 0; t < data.coins.length; t++) {
-      $tBody.appendChild(renderCrypto(data.coins[t]));
-    }
-  } else {
+  if (data.coins.length > 1) {
+    data.coins = [];
     for (var i = 0; i < 50; i++) {
       data.coins.push(xhr.response.data[i]);
     }
     for (var k = 0; k < data.coins.length; k++) {
       $tBody.appendChild(renderCrypto(data.coins[k]));
+    }
+  } else {
+    for (var t = 0; t < 50; t++) {
+      data.coins.push(xhr.response.data[t]);
+    }
+    for (var p = 0; p < data.coins.length; p++) {
+      $tBody.appendChild(renderCrypto(data.coins[p]));
     }
   }
 });
@@ -131,22 +135,43 @@ function convert(event) {
 }
 $converter.addEventListener('submit', convert);
 
+var $totalForm = document.querySelector('#add-modal');
+var $overlay = document.querySelector('.overlay');
 var $table = document.querySelector('table');
 $table.addEventListener('click', handleClick);
 function handleClick(event) {
   if (event.target.nodeName === 'I') {
-    var $closest = event.target.closest('.fa-plus');
-    $closest.setAttribute('class', 'hidden');
+    $overlay.className = 'overlay';
     var $closestCrypto = event.target.closest('tr');
     var $tr = document.querySelectorAll('tr');
     for (var i = 1; i < data.coins.length + 1; i++) {
       if ($closestCrypto === $tr[i]) {
-        data.myWallet.push(data.coins[i - 1]);
-        $card.appendChild(renderMyWallet(data.coins[i - 1]));
+        data.add.push(data.coins[i - 1]);
       }
     }
   }
 }
+function cancel(event) {
+  if (event.target.id === 'cancel-button-total') {
+    $overlay.className = 'overlay hidden';
+    data.add = [];
+  }
+}
+$totalForm.addEventListener('click', cancel);
+
+$totalForm.addEventListener('submit', function () {
+  var count = $totalForm.elements.total.value;
+  data.add[0].total = count;
+  data.myWallet.push(data.add[0]);
+  $card.appendChild(renderMyWallet(data.add[0]));
+  for (var i = 0; i < data.coins.length; i++) {
+    var $addIcon = document.querySelectorAll('.fa-plus');
+    if (data.add[0].name === data.coins[i].name) {
+      $addIcon[i].setAttribute('class', 'fa-solid fa-plus');
+    }
+  }
+  data.add = [];
+});
 
 var $card = document.querySelector('#card');
 function renderMyWallet(coin) {
@@ -206,7 +231,7 @@ function renderMyWallet(coin) {
   var $pSeven = document.createElement('p');
   var $spanSeven = document.createElement('span');
   $pSeven.textContent = 'Total: ';
-  $spanSeven.textContent = '1';
+  $spanSeven.textContent = coin.total;
   $pSeven.append($spanSeven);
   $div.appendChild($pSeven);
 

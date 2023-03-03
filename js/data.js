@@ -1,7 +1,8 @@
 var data = {
   view: 'home-page',
   coins: [],
-  myWallet: []
+  myWallet: [],
+  add: []
 };
 
 window.addEventListener('beforeunload', event => {

@@ -35,7 +35,7 @@ function renderCrypto(crypto) {
   $tr.appendChild($tdTwo);
 
   var $tdThree = document.createElement('td');
-  $tdThree.textContent = '$' + parseFloat(crypto.priceUsd).toFixed(2);
+  $tdThree.textContent = '$' + parseFloat(parseFloat(crypto.priceUsd).toFixed(2)).toLocaleString();
   $tr.appendChild($tdThree);
 
   var $tdFour = document.createElement('td');
@@ -43,15 +43,15 @@ function renderCrypto(crypto) {
   $tr.appendChild($tdFour);
 
   var $tdFive = document.createElement('td');
-  $tdFive.textContent = parseInt(parseFloat(crypto.marketCapUsd).toFixed(0)).toLocaleString();
+  $tdFive.textContent = parseFloat(parseFloat(crypto.marketCapUsd).toFixed(0)).toLocaleString();
   $tr.appendChild($tdFive);
 
   var $tdSix = document.createElement('td');
-  $tdSix.textContent = parseInt(parseFloat(crypto.volumeUsd24Hr).toFixed(0)).toLocaleString();
+  $tdSix.textContent = parseFloat(parseFloat(crypto.volumeUsd24Hr).toFixed(0)).toLocaleString();
   $tr.appendChild($tdSix);
 
   var $tdSeven = document.createElement('td');
-  $tdSeven.textContent = parseInt(parseFloat(crypto.supply).toFixed(0)).toLocaleString();
+  $tdSeven.textContent = parseFloat(parseFloat(crypto.supply).toFixed(0)).toLocaleString();
   $tr.appendChild($tdSeven);
 
   var $tdEight = document.createElement('td');
@@ -116,7 +116,7 @@ function convert(event) {
     var lowerCaseOne = currencyOne.toLowerCase();
     var firstWordCapOne = lowerCaseOne[0].toUpperCase();
     if (lowerCaseOne.replace(lowerCaseOne[0], firstWordCapOne) === data.coins[i].name) {
-      yourTotal = parseFloat(parseInt(parseFloat(amount).toFixed(2)) * parseInt(parseFloat(data.coins[i].priceUsd).toFixed(2))).toFixed(2);
+      yourTotal = parseFloat(parseFloat(amount).toFixed(2) * parseFloat(parseFloat(data.coins[i].priceUsd).toFixed(2))).toFixed(2);
       break;
     }
   }
@@ -126,7 +126,7 @@ function convert(event) {
     var firstWordCapTwo = lowerCaseTwo[0].toUpperCase();
     if (lowerCaseTwo.replace(lowerCaseTwo[0], firstWordCapTwo) === data.coins[k].name) {
       totalSymbol = data.coins[k].symbol;
-      totalWorth = yourTotal / parseInt(parseFloat(data.coins[k].priceUsd).toFixed(2));
+      totalWorth = yourTotal / parseFloat(parseFloat(data.coins[k].priceUsd).toFixed(2));
       break;
     }
   }
@@ -196,7 +196,7 @@ function renderMyWallet(coin) {
   var $pTwo = document.createElement('p');
   var $spanTwo = document.createElement('span');
   $pTwo.textContent = 'Price: ';
-  $spanTwo.textContent = '$' + parseFloat(coin.priceUsd).toFixed(2);
+  $spanTwo.textContent = '$' + parseFloat(parseFloat(coin.priceUsd).toFixed(2)).toLocaleString();
   $pTwo.append($spanTwo);
   $divChild.appendChild($pTwo);
 
@@ -210,21 +210,21 @@ function renderMyWallet(coin) {
   var $pFour = document.createElement('p');
   var $spanFour = document.createElement('span');
   $pFour.textContent = 'Market Cap: ';
-  $spanFour.textContent = parseInt(parseFloat(coin.marketCapUsd).toFixed(0)).toLocaleString();
+  $spanFour.textContent = parseFloat(parseFloat(coin.marketCapUsd).toFixed(0)).toLocaleString();
   $pFour.append($spanFour);
   $divChild.appendChild($pFour);
 
   var $pFive = document.createElement('p');
   var $spanFive = document.createElement('span');
   $pFive.textContent = 'Volume(24h): ';
-  $spanFive.textContent = parseInt(parseFloat(coin.volumeUsd24Hr).toFixed(0)).toLocaleString();
+  $spanFive.textContent = parseFloat(parseFloat(coin.volumeUsd24Hr).toFixed(0)).toLocaleString();
   $pFive.append($spanFive);
   $divChild.appendChild($pFive);
 
   var $pSix = document.createElement('p');
   var $spanSix = document.createElement('span');
   $pSix.textContent = 'Circulating Supply: ';
-  $spanSix.textContent = parseInt(parseFloat(coin.supply).toFixed(0)).toLocaleString();
+  $spanSix.textContent = parseFloat(parseFloat(coin.supply).toFixed(0)).toLocaleString();
   $pSix.append($spanSix);
   $divChild.appendChild($pSix);
 
@@ -235,16 +235,28 @@ function renderMyWallet(coin) {
   $pSeven.append($spanSeven);
   $div.appendChild($pSeven);
 
-  var $iTag = document.querySelector('i');
+  var $iTag = document.createElement('i');
   $iTag.setAttribute('class', 'fa-solid fa-minus fa-xl');
   $div.appendChild($iTag);
 
   return $div;
 }
 
-document.addEventListener('DOMContentLoaded', event => {
-  for (var k = 0; k < data.myWallet.length; k++) {
-    $card.appendChild(renderMyWallet(data.myWallet[k]));
+for (var k = 0; k < data.myWallet.length; k++) {
+  $card.appendChild(renderMyWallet(data.myWallet[k]));
+}
+
+function addYourTotal(arr) {
+  var totalCount = 0;
+  for (var i = 0; i < data.myWallet.length; i++) {
+    totalCount += ((parseFloat(parseFloat(data.myWallet[i].priceUsd).toFixed(2))) * parseFloat(parseFloat(data.myWallet[i].total).toFixed(2)));
   }
+  return '$' + totalCount.toLocaleString();
+}
+var $totalAmount = document.querySelector('#total-amount');
+
+$totalAmount.textContent = addYourTotal(data.myWallet);
+
+document.addEventListener('DOMContentLoaded', event => {
   viewSwap(data.view);
 });

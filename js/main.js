@@ -17,10 +17,6 @@ xhr.addEventListener('load', function () {
 });
 xhr.send();
 
-document.addEventListener('DOMContentLoaded', event => {
-  viewSwap(data.view);
-});
-
 var $tBody = document.querySelector('tbody');
 
 function renderCrypto(crypto) {
@@ -146,11 +142,13 @@ function handleClick(event) {
     for (var i = 1; i < data.coins.length + 1; i++) {
       if ($closestCrypto === $tr[i]) {
         data.myWallet.push(data.coins[i - 1]);
+        $card.appendChild(renderMyWallet(data.coins[i - 1]));
       }
     }
   }
 }
 
+var $card = document.querySelector('#card');
 function renderMyWallet(coin) {
   var $div = document.createElement('div');
   $div.setAttribute('class', 'card-wrapper');
@@ -164,53 +162,53 @@ function renderMyWallet(coin) {
   $div.appendChild($divChild);
 
   var $pOne = document.createElement('p');
-  var $brOne = document.createElement('br');
-  $pOne.textContent = 'Rank:';
-  $pOne.appendChild($brOne);
-  $pOne.textContent += coin.rank;
+  var $spanOne = document.createElement('span');
+  $pOne.textContent = 'Rank: ';
+  $spanOne.textContent = coin.rank;
+  $pOne.append($spanOne);
   $divChild.appendChild($pOne);
 
   var $pTwo = document.createElement('p');
-  var $brTwo = document.createElement('br');
-  $pTwo.textContent = 'Price:';
-  $pTwo.appendChild($brTwo);
-  $pTwo.textContent += '$' + parseFloat(coin.priceUsd).toFixed(2);
+  var $spanTwo = document.createElement('span');
+  $pTwo.textContent = 'Price: ';
+  $spanTwo.textContent = '$' + parseFloat(coin.priceUsd).toFixed(2);
+  $pTwo.append($spanTwo);
   $divChild.appendChild($pTwo);
 
   var $pThree = document.createElement('p');
-  var $brThree = document.createElement('br');
-  $pThree.textContent = '24%:';
-  $pThree.appendChild($brThree);
-  $pThree.textContent += parseFloat(coin.changePercent24Hr).toFixed(2) + '%';
+  var $spanThree = document.createElement('span');
+  $pThree.textContent = '24%: ';
+  $spanThree.textContent = parseFloat(coin.changePercent24Hr).toFixed(2) + '%';
+  $pThree.append($spanThree);
   $divChild.appendChild($pThree);
 
   var $pFour = document.createElement('p');
-  var $brFour = document.createElement('br');
-  $pFour.textContent = 'Market Cap:';
-  $pFour.appendChild($brFour);
-  $pFour.textContent += parseInt(parseFloat(coin.marketCapUsd).toFixed(0)).toLocaleString();
+  var $spanFour = document.createElement('span');
+  $pFour.textContent = 'Market Cap: ';
+  $spanFour.textContent = parseInt(parseFloat(coin.marketCapUsd).toFixed(0)).toLocaleString();
+  $pFour.append($spanFour);
   $divChild.appendChild($pFour);
 
   var $pFive = document.createElement('p');
-  var $brFive = document.createElement('br');
-  $pFive.textContent = 'Volume(24h):';
-  $pFive.appendChild($brFive);
-  $pFive.textContent += parseInt(parseFloat(coin.volumeUsd24Hr).toFixed(0)).toLocaleString();
+  var $spanFive = document.createElement('span');
+  $pFive.textContent = 'Volume(24h): ';
+  $spanFive.textContent = parseInt(parseFloat(coin.volumeUsd24Hr).toFixed(0)).toLocaleString();
+  $pFive.append($spanFive);
   $divChild.appendChild($pFive);
 
   var $pSix = document.createElement('p');
-  var $brSix = document.createElement('br');
-  $pSix.textContent = 'Circulating Supply:';
-  $pSix.appendChild($brSix);
-  $pSix.textContent += parseInt(parseFloat(coin.supply).toFixed(0)).toLocaleString();
+  var $spanSix = document.createElement('span');
+  $pSix.textContent = 'Circulating Supply: ';
+  $spanSix.textContent = parseInt(parseFloat(coin.supply).toFixed(0)).toLocaleString();
+  $pSix.append($spanSix);
   $divChild.appendChild($pSix);
 
   var $pSeven = document.createElement('p');
-  var $brSeven = document.createElement('br');
-  $pSeven.textContent = 'Total:';
-  $pSeven.appendChild($brSeven);
-  $pSeven.textContent += '1';
-  $div.appendChild($pOne);
+  var $spanSeven = document.createElement('span');
+  $pSeven.textContent = 'Total: ';
+  $spanSeven.textContent = '1';
+  $pSeven.append($spanSeven);
+  $div.appendChild($pSeven);
 
   var $iTag = document.querySelector('i');
   $iTag.setAttribute('class', 'fa-solid fa-minus fa-xl');
@@ -219,4 +217,9 @@ function renderMyWallet(coin) {
   return $div;
 }
 
-renderMyWallet();
+document.addEventListener('DOMContentLoaded', event => {
+  for (var k = 0; k < data.myWallet.length; k++) {
+    $card.appendChild(renderMyWallet(data.myWallet[k]));
+  }
+  viewSwap(data.view);
+});

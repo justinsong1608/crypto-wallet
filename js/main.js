@@ -97,14 +97,14 @@ var $walletTab = document.querySelector('#wallet-tab');
 $coinsTab.addEventListener('click', function () { viewSwap('home-page'); });
 $converterTab.addEventListener('click', function () { viewSwap('converter-page'); });
 $walletTab.addEventListener('click', function () { viewSwap('wallet-page'); });
-var $form = document.querySelector('form');
+var $converter = document.querySelector('#converter');
 
 function convert(event) {
   event.preventDefault();
   var $totalCalculated = document.querySelector('#total-calculated');
-  var currencyOne = $form.elements.currencyone.value;
-  var currencyTwo = $form.elements.currencytwo.value;
-  var amount = $form.elements.amount.value;
+  var currencyOne = $converter.elements.currencyone.value;
+  var currencyTwo = $converter.elements.currencytwo.value;
+  var amount = $converter.elements.amount.value;
   var yourTotal;
   var totalSymbol;
   var totalWorth;
@@ -129,7 +129,7 @@ function convert(event) {
   var finalTotal = $totalCalculated.textContent = parseFloat(totalWorth).toFixed(5) + ' ' + totalSymbol;
   return finalTotal;
 }
-$form.addEventListener('submit', convert);
+$converter.addEventListener('submit', convert);
 
 var $table = document.querySelector('table');
 $table.addEventListener('click', handleClick);

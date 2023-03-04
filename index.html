@@ -50,22 +50,36 @@
         <tbody>
         </tbody>
       </table>
+      <div class="overlay hidden">
+        <div class="modal">
+          <h2 class="center">Total:</h2>
+          <div>
+            <form action="" id="add-modal">
+              <input type="text" name="total" id="total" class="center" placeholder="Amount" required>
+              <div class="modal-button">
+                <button id="cancel-button-total" type="button">CANCEL</button>
+                <button id="submit-button-total" type="submit">SUBMIT</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <div data-view="converter-page" class="hidden">
       <div class="row center">
-        <form action="">
+        <form action="" id="converter">
           <div>
             <label for="currencyone">Currency&#58;</label>
-            <input type="search" name="currencyone" id="currencyone" placeholder="Ex: bitcoin" required>
+            <input type="search" name="currencyone" id="currencyone" placeholder="Ex: bitcoin" class="input" required>
           </div>
           <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
           <div>
             <label for="currencytwo">Currency&#58;</label>
-            <input type="search" name="currencytwo" id="currencytwo" placeholder="Ex: ethereum" required>
+            <input type="search" name="currencytwo" id="currencytwo" placeholder="Ex: ethereum" class="input" required>
           </div>
           <div class="converter-flex">
             <label for="amount">Input the amount to be converted&#58;</label>
-            <input type="text" name="amount" id="amount" size="35" placeholder="Amount">
+            <input type="text" name="amount" id="amount" size="35" placeholder="Amount" class="input">
           </div>
           <div class="converter-flex">
             <button type="submit" id="convert">Convert</button>
@@ -87,7 +101,7 @@
         <h1 id="my-total">MyTotal&#58;</h1>
       </div>
       <div class="row center">
-        <h1 id="total-amount">$23,000</h1>
+        <h1 id="total-amount"></h1>
       </div>
       <div class="row">
         <h1 id="my-wallet">MyWallet&#58;</h1>

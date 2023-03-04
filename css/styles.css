@@ -32,16 +32,7 @@ tr {
   border-bottom: 0.1rem solid #1e2022;
 }
 
-form {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 4rem;
-  width: 100%;
-  justify-content: space-around;
-}
-
-label,
-input {
+label {
   display: flex;
   flex-direction: column;
   font-family: "Shantell Sans", cursive;
@@ -74,6 +65,15 @@ thead > tr {
 
 span {
   color: #6c91c2;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  text-align: center;
+  height: 2rem;
 }
 
 .converter-flex {
@@ -137,6 +137,7 @@ span {
   font-family: "Shantell Sans", cursive;
   padding-bottom: 10px;
   text-align: center;
+  height: 1.5rem;
 }
 
 .card-wrapper > h3 {
@@ -164,10 +165,83 @@ span {
 .fa-minus {
   float: right;
   cursor: pointer;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  color: red;
 }
 
 .fa-plus {
   cursor: pointer;
+  color: lightseagreen;
+}
+
+.overlay {
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  border-radius: 5px;
+  border: solid black;
+  width: 15rem;
+  height: 13rem;
+  background-color: #c9d6df;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 10;
+}
+
+.modal-button {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+#cancel-button-total {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+#submit-button-total {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+#add-modal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#total {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  height: 2rem;
 }
 
 #card {
@@ -214,13 +288,17 @@ span {
   margin-left: 2rem;
 }
 
+#converter {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  width: 100%;
+  justify-content: space-around;
+}
+
 @media screen and (min-width: 768px) {
   table {
     font-size: 1rem;
-  }
-
-  form {
-    width: 50%;
   }
 
   .card-wrapper {
@@ -229,5 +307,9 @@ span {
 
   #my-wallet {
     margin-left: 4rem;
+  }
+
+  #converter {
+    width: 50%;
   }
 }

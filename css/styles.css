@@ -205,6 +205,19 @@ span {
   margin-top: 3rem;
 }
 
+.modal-delete {
+  border-radius: 5px;
+  border: solid black;
+  width: 15rem;
+  height: 10rem;
+  background-color: #c9d6df;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 10;
+}
+
 #cancel-button-total {
   border-radius: 5px;
   border-style: none;
@@ -219,6 +232,32 @@ span {
 }
 
 #submit-button-total {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+#cancel-button-delete {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+#submit-button-delete {
   border-radius: 5px;
   border-style: none;
   width: 5rem;

@@ -63,7 +63,7 @@ function renderCrypto(crypto) {
       $iTag.setAttribute('class', 'fa-solid fa-plus');
       $tdEight.appendChild($iTag);
     } else {
-      $iTag.setAttribute('class', 'hidden');
+      $iTag.setAttribute('class', 'fa-solid fa-plus hidden');
       $tdEight.appendChild($iTag);
     }
   } else {
@@ -256,6 +256,48 @@ function addYourTotal(arr) {
 var $totalAmount = document.querySelector('#total-amount');
 
 $totalAmount.textContent = addYourTotal(data.myWallet);
+
+var $overlayDelete = document.querySelectorAll('.overlay')[1];
+
+function deleteCoin(event) {
+  if (event.target.nodeName === 'I') {
+    $overlayDelete.className = 'overlay';
+    var $closestCrypto = event.target.closest('.card-wrapper');
+    var $cardWrapper = document.querySelectorAll('.card-wrapper');
+    for (var i = 0; i < data.myWallet.length + 1; i++) {
+      if ($closestCrypto === $cardWrapper[i]) {
+        data.delete.push(data.myWallet[i]);
+        data.delete.push($cardWrapper[i]);
+      }
+    }
+  }
+}
+$card.addEventListener('click', deleteCoin);
+
+var $modalButton = document.querySelector('#delete-buttons');
+function cancelDelete(event) {
+  if (event.target.id === 'cancel-button-delete') {
+    $overlayDelete.className = 'overlay hidden';
+  }
+}
+$modalButton.addEventListener('click', cancelDelete);
+
+function confirmDelete(event) {
+  if (event.target.id === 'confirm-button-delete') {
+    $overlayDelete.className = 'overlay hidden';
+    for (var i = 0; i < data.myWallet.length; i++) {
+      if (data.delete[0] === data.myWallet[i]) {
+        data.myWallet.splice(i, 1);
+        data.delete[1].remove();
+        $totalAmount.textContent = addYourTotal(data.myWallet);
+        var $addIcon = document.querySelectorAll('.fa-plus');
+        $addIcon[parseInt(data.delete[0].rank) - 1].className = 'fa-solid fa-plus';
+        data.delete = [];
+      }
+    }
+  }
+}
+$modalButton.addEventListener('click', confirmDelete);
 
 document.addEventListener('DOMContentLoaded', event => {
   viewSwap(data.view);

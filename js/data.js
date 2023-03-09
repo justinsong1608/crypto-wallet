@@ -3,7 +3,8 @@ var data = {
   coins: [],
   myWallet: [],
   add: [],
-  delete: []
+  delete: [],
+  edit: []
 };
 
 window.addEventListener('beforeunload', event => {

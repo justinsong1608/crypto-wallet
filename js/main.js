@@ -21,6 +21,10 @@ xhr.addEventListener('load', function () {
 });
 xhr.send();
 
+document.addEventListener('DOMContentLoaded', event => {
+  viewSwap(data.view);
+});
+
 var $tBody = document.querySelector('tbody');
 
 function renderCrypto(crypto) {
@@ -235,9 +239,17 @@ function renderMyWallet(coin) {
   $pSeven.append($spanSeven);
   $div.appendChild($pSeven);
 
+  var $editDiv = document.createElement('div');
+  $editDiv.setAttribute('class', 'edit-minus');
+  $div.appendChild($editDiv);
+
+  var $editTag = document.createElement('i');
+  $editTag.setAttribute('class', 'fa-regular fa-pen-to-square fa-l');
+  $editDiv.appendChild($editTag);
+
   var $iTag = document.createElement('i');
   $iTag.setAttribute('class', 'fa-solid fa-minus fa-xl');
-  $div.appendChild($iTag);
+  $editDiv.appendChild($iTag);
 
   return $div;
 }
@@ -260,7 +272,7 @@ $totalAmount.textContent = addYourTotal(data.myWallet);
 var $overlayDelete = document.querySelectorAll('.overlay')[1];
 
 function deleteCoin(event) {
-  if (event.target.nodeName === 'I') {
+  if (event.target.classList.contains('fa-minus')) {
     $overlayDelete.className = 'overlay';
     var $closestCrypto = event.target.closest('.card-wrapper');
     var $cardWrapper = document.querySelectorAll('.card-wrapper');
@@ -278,6 +290,7 @@ var $modalButton = document.querySelector('#delete-buttons');
 function cancelDelete(event) {
   if (event.target.id === 'cancel-button-delete') {
     $overlayDelete.className = 'overlay hidden';
+    data.delete = [];
   }
 }
 $modalButton.addEventListener('click', cancelDelete);
@@ -299,6 +312,39 @@ function confirmDelete(event) {
 }
 $modalButton.addEventListener('click', confirmDelete);
 
-document.addEventListener('DOMContentLoaded', event => {
-  viewSwap(data.view);
+var $overlayEdit = document.querySelectorAll('.overlay')[2];
+function openEdit(event) {
+  if (event.target.classList.contains('fa-pen-to-square')) {
+    $overlayEdit.className = 'overlay';
+    var $closestCrypto = event.target.closest('.card-wrapper');
+    var $cardWrapper = document.querySelectorAll('.card-wrapper');
+    for (var i = 0; i < data.myWallet.length + 1; i++) {
+      if ($closestCrypto === $cardWrapper[i]) {
+        data.edit.push(data.myWallet[i]);
+      }
+    }
+  }
+}
+
+$card.addEventListener('click', openEdit);
+
+var $cancelEdit = document.querySelector('#cancel-button-edit');
+
+$cancelEdit.addEventListener('click', function () {
+  $overlayEdit.className = 'overlay hidden';
+  data.edit = [];
+});
+
+var $editForm = document.querySelector('#edit-modal');
+
+$editForm.addEventListener('submit', function () {
+  var count = $editForm.elements.edit.value;
+  data.edit.total = count;
+  for (var i = 0; i < data.myWallet.length; i++) {
+    if (data.edit[0].name === data.myWallet[i].name) {
+      data.myWallet[i].total = data.edit.total;
+    }
+  }
+
+  data.edit = [];
 });

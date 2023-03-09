@@ -67,6 +67,15 @@ span {
   color: #6c91c2;
 }
 
+body {
+  background-color: #52616b;
+  background-size: cover;
+}
+
+header {
+  background-color: #c9d6df;
+}
+
 .input {
   display: flex;
   flex-direction: column;
@@ -97,7 +106,6 @@ span {
 }
 
 .main-container {
-  background-color: #52616b;
   padding-bottom: 5rem;
 }
 
@@ -106,10 +114,6 @@ span {
   height: 3.5rem;
   border-radius: 50%;
   margin-top: 0.4rem;
-}
-
-.header-container {
-  background-color: #c9d6df;
 }
 
 .hidden {
@@ -162,11 +166,16 @@ span {
   margin: 10px;
 }
 
-.fa-minus {
-  float: right;
+.fa-pen-to-square {
   cursor: pointer;
-  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.fa-minus {
+  cursor: pointer;
   margin-right: 1rem;
+  margin-top: 0.5rem;
   color: red;
 }
 
@@ -218,6 +227,11 @@ span {
   z-index: 10;
 }
 
+.edit-minus {
+  display: flex;
+  justify-content: space-between;
+}
+
 #cancel-button-total {
   border-radius: 5px;
   border-style: none;
@@ -232,6 +246,32 @@ span {
 }
 
 #submit-button-total {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+#cancel-button-edit {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+#submit-button-edit {
   border-radius: 5px;
   border-style: none;
   width: 5rem;
@@ -276,6 +316,19 @@ span {
 }
 
 #total {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  height: 2rem;
+}
+
+#edit-modal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#edit {
   margin-left: auto;
   margin-right: auto;
   font-family: "Shantell Sans", cursive;

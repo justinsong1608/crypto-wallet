@@ -163,6 +163,7 @@ span {
 }
 
 .fa-pen-to-square {
+  cursor: pointer;
   margin-left: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -253,6 +254,32 @@ span {
   margin-top: -1rem;
 }
 
+#cancel-button-edit {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+#submit-button-edit {
+  border-radius: 5px;
+  border-style: none;
+  width: 5rem;
+  height: 2rem;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  background-color: #6c91c2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
 #cancel-button-delete {
   border-radius: 5px;
   border-style: none;
@@ -285,6 +312,19 @@ span {
 }
 
 #total {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Shantell Sans", cursive;
+  color: #1e2022;
+  height: 2rem;
+}
+
+#edit-modal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#edit-total {
   margin-left: auto;
   margin-right: auto;
   font-family: "Shantell Sans", cursive;

@@ -21,6 +21,10 @@ xhr.addEventListener('load', function () {
 });
 xhr.send();
 
+document.addEventListener('DOMContentLoaded', event => {
+  viewSwap(data.view);
+});
+
 var $tBody = document.querySelector('tbody');
 
 function renderCrypto(crypto) {
@@ -306,7 +310,3 @@ function confirmDelete(event) {
   }
 }
 $modalButton.addEventListener('click', confirmDelete);
-
-document.addEventListener('DOMContentLoaded', event => {
-  viewSwap(data.view);
-});

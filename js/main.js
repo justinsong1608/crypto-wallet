@@ -235,9 +235,17 @@ function renderMyWallet(coin) {
   $pSeven.append($spanSeven);
   $div.appendChild($pSeven);
 
+  var $editDiv = document.createElement('div');
+  $editDiv.setAttribute('class', 'edit-minus');
+  $div.appendChild($editDiv);
+
+  var $editTag = document.createElement('i');
+  $editTag.setAttribute('class', 'fa-regular fa-pen-to-square fa-l');
+  $editDiv.appendChild($editTag);
+
   var $iTag = document.createElement('i');
   $iTag.setAttribute('class', 'fa-solid fa-minus fa-xl');
-  $div.appendChild($iTag);
+  $editDiv.appendChild($iTag);
 
   return $div;
 }

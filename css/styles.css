@@ -162,11 +162,15 @@ span {
   margin: 10px;
 }
 
+.fa-pen-to-square {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .fa-minus {
-  float: right;
   cursor: pointer;
-  margin-bottom: 1rem;
   margin-right: 1rem;
+  margin-top: 0.5rem;
   color: red;
 }
 
@@ -216,6 +220,11 @@ span {
   right: 50%;
   transform: translate(-50%, 50%);
   z-index: 10;
+}
+
+.edit-minus {
+  display: flex;
+  justify-content: space-between;
 }
 
 #cancel-button-total {

@@ -29,11 +29,11 @@
 
 @media screen and (min-width: 768px) {
   .main-container {
-    max-width: 1511px;
+    max-width: 100%;
   }
 
   .header-container {
-    max-width: 1511px;
+    max-width: 100%;
   }
 
   .four-col {

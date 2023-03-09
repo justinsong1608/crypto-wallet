@@ -21,6 +21,31 @@ xhr.addEventListener('load', function () {
 });
 xhr.send();
 
+function updateInfo() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.coincap.io/v2/assets');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    if (data.coins.length > 1) {
+      data.coins = [];
+      $tBody.remove();
+      var $newTBody = document.createElement('tbody');
+      var $table = document.querySelector('table');
+      $table.appendChild($newTBody);
+      $tBody = document.querySelector('tbody');
+      for (var i = 0; i < 50; i++) {
+        data.coins.push(xhr.response.data[i]);
+      }
+      for (var k = 0; k < data.coins.length; k++) {
+        $tBody.appendChild(renderCrypto(data.coins[k]));
+      }
+    }
+  });
+  xhr.send();
+}
+
+setInterval(updateInfo, 30000);
+
 document.addEventListener('DOMContentLoaded', event => {
   viewSwap(data.view);
 });

@@ -39,4 +39,8 @@
   .four-col {
     padding: 0 0.75rem;
   }
+
+  table {
+    width: 60%;
+  }
 }

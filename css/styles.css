@@ -79,7 +79,6 @@ header {
 .input {
   display: flex;
   flex-direction: column;
-  font-family: "Shantell Sans", cursive;
   color: #1e2022;
   text-align: center;
   height: 2rem;
@@ -318,9 +317,12 @@ header {
 #total {
   margin-left: auto;
   margin-right: auto;
-  font-family: "Shantell Sans", cursive;
   color: #1e2022;
   height: 2rem;
+}
+
+::placeholder {
+  font-family: "Shantell Sans", cursive;
 }
 
 #edit-modal {
@@ -331,7 +333,6 @@ header {
 #edit {
   margin-left: auto;
   margin-right: auto;
-  font-family: "Shantell Sans", cursive;
   color: #1e2022;
   height: 2rem;
 }

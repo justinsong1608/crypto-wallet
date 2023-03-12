@@ -22,11 +22,11 @@ h2:hover {
 table {
   font-family: "Shantell Sans", cursive;
   color: #f0f5f9;
-  font-size: 0.4rem;
+  font-size: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
-  width: 50%;
+  width: 60%;
 }
 
 tr {
@@ -406,5 +406,11 @@ header {
 
   #converter {
     width: 50%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .nothing {
+    display: none !important;
   }
 }

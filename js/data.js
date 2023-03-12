@@ -7,7 +7,7 @@ var data = {
   edit: []
 };
 
-window.addEventListener('beforeunload', event => {
+window.addEventListener('unload', event => {
   var steralData = JSON.stringify(data);
   localStorage.setItem('cryptocurrency', steralData);
 });

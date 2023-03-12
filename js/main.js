@@ -72,14 +72,17 @@ function renderCrypto(crypto) {
   $tr.appendChild($tdFour);
 
   var $tdFive = document.createElement('td');
+  $tdFive.setAttribute('class', 'nothing');
   $tdFive.textContent = parseFloat(parseFloat(crypto.marketCapUsd).toFixed(0)).toLocaleString();
   $tr.appendChild($tdFive);
 
   var $tdSix = document.createElement('td');
+  $tdSix.setAttribute('class', 'nothing');
   $tdSix.textContent = parseFloat(parseFloat(crypto.volumeUsd24Hr).toFixed(0)).toLocaleString();
   $tr.appendChild($tdSix);
 
   var $tdSeven = document.createElement('td');
+  $tdSeven.setAttribute('class', 'nothing');
   $tdSeven.textContent = parseFloat(parseFloat(crypto.supply).toFixed(0)).toLocaleString();
   $tr.appendChild($tdSeven);
 

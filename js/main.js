@@ -199,7 +199,7 @@ $totalForm.addEventListener('submit', function () {
   for (var i = 0; i < data.coins.length; i++) {
     var $addIcon = document.querySelectorAll('.fa-plus');
     if (data.add[0].name === data.coins[i].name) {
-      $addIcon[i].setAttribute('class', 'fa-solid fa-plus');
+      $addIcon[i].setAttribute('class', 'hidden');
     }
   }
   data.add = [];

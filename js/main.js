@@ -362,17 +362,3 @@ $cancelEdit.addEventListener('click', function () {
   $overlayEdit.className = 'overlay hidden';
   data.edit = [];
 });
-
-var $editForm = document.querySelector('#edit-modal');
-
-$editForm.addEventListener('submit', function () {
-  var count = $editForm.elements.edit.value;
-  data.edit.total = count;
-  for (var i = 0; i < data.myWallet.length; i++) {
-    if (data.edit[0].name === data.myWallet[i].name) {
-      data.myWallet[i].total = data.edit.total;
-    }
-  }
-
-  data.edit = [];
-});

@@ -192,6 +192,7 @@ function cancel(event) {
 $totalForm.addEventListener('click', cancel);
 
 $totalForm.addEventListener('submit', function () {
+  event.preventDefault();
   var count = $totalForm.elements.total.value;
   data.add[0].total = count;
   data.myWallet.push(data.add[0]);

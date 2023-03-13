@@ -205,6 +205,8 @@ $totalForm.addEventListener('submit', function (event) {
   }
   data.add = [];
   $overlay.className = 'overlay hidden';
+  $totalAmount.textContent = addYourTotal(data.myWallet);
+  $totalForm.reset();
 });
 
 var $card = document.querySelector('#card');

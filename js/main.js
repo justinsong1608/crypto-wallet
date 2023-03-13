@@ -204,7 +204,7 @@ $totalForm.addEventListener('submit', function (event) {
     }
   }
   data.add = [];
-  $totalForm.submit();
+  $overlay.className = 'overlay hidden';
 });
 
 var $card = document.querySelector('#card');

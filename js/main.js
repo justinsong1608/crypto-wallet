@@ -206,7 +206,6 @@ $totalForm.addEventListener('submit', function (event) {
   data.add = [];
   $overlay.className = 'overlay hidden';
   addYourTotal(data.myWallet);
-  $totalForm.submit();
   $totalForm.reset();
 });
 

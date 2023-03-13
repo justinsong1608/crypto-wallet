@@ -191,7 +191,7 @@ function cancel(event) {
 }
 $totalForm.addEventListener('click', cancel);
 
-$totalForm.addEventListener('submit', function () {
+$totalForm.addEventListener('submit', function (event) {
   event.preventDefault();
   var count = $totalForm.elements.total.value;
   data.add[0].total = count;
@@ -204,6 +204,7 @@ $totalForm.addEventListener('submit', function () {
     }
   }
   data.add = [];
+  $totalForm.submit();
 });
 
 var $card = document.querySelector('#card');

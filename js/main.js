@@ -191,8 +191,7 @@ function cancel(event) {
 }
 $totalForm.addEventListener('click', cancel);
 
-$totalForm.addEventListener('submit', function (event) {
-  event.preventDefault();
+$totalForm.addEventListener('submit', function () {
   var count = $totalForm.elements.total.value;
   data.add[0].total = count;
   data.myWallet.push(data.add[0]);
@@ -204,8 +203,6 @@ $totalForm.addEventListener('submit', function (event) {
     }
   }
   data.add = [];
-  $overlay.className = 'overlay hidden';
-  addYourTotal(data.myWallet);
   $totalForm.reset();
 });
 

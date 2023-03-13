@@ -204,7 +204,7 @@ $totalForm.addEventListener('submit', function () {
     }
   }
   data.add = [];
-  addYourTotal(data.myWallet);
+  $totalAmount.textContent = addYourTotal(data.myWallet);
   $overlay.className = 'overlay hidden';
   $totalForm.reset();
 });
@@ -266,6 +266,7 @@ function renderMyWallet(coin) {
 
   var $pSeven = document.createElement('p');
   var $spanSeven = document.createElement('span');
+  $spanSeven.setAttribute('class', 'edit-total');
   $pSeven.textContent = 'Total: ';
   $spanSeven.textContent = coin.total;
   $pSeven.append($spanSeven);
@@ -370,6 +371,7 @@ $cancelEdit.addEventListener('click', function () {
 var $editForm = document.querySelector('#edit-modal');
 
 $editForm.addEventListener('submit', function () {
+  event.preventDefault();
   var count = $editForm.elements.edit.value;
   data.edit.total = count;
   for (var i = 0; i < data.myWallet.length; i++) {
@@ -378,5 +380,14 @@ $editForm.addEventListener('submit', function () {
     }
   }
 
+  $overlayEdit.className = 'overlay hidden';
+  var $editTotalPrice = document.querySelectorAll('.edit-total');
+  for (var k = 0; k < data.myWallet.length; k++) {
+    if (data.edit[0].name === data.myWallet[k].name) {
+      $editTotalPrice[k].textContent = data.edit.total;
+    }
+  }
+  $totalAmount.textContent = addYourTotal(data.myWallet);
   data.edit = [];
+  $editForm.reset();
 });

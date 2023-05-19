@@ -44,7 +44,7 @@ function updateInfo() {
   xhr.send();
 }
 
-setInterval(updateInfo, 30000);
+setInterval(updateInfo, 30000); // Renders the table every 30 secs with updated info because I was limited to how many calls I can make //
 
 document.addEventListener('DOMContentLoaded', event => {
   viewSwap(data.view);
@@ -135,6 +135,10 @@ $converterTab.addEventListener('click', function () { viewSwap('converter-page')
 $walletTab.addEventListener('click', function () { viewSwap('wallet-page'); });
 var $converter = document.querySelector('#converter');
 
+function replaceSpacesWithDashes(argument) { // This function is used to replace all spaces with dashes //
+  return argument.replace(/ /g, '-');
+}
+
 function convert(event) {
   event.preventDefault();
   var $totalCalculated = document.querySelector('#total-calculated');
@@ -146,8 +150,8 @@ function convert(event) {
   var totalWorth;
   for (var i = 0; i < data.coins.length; i++) {
     var lowerCaseOne = currencyOne.toLowerCase();
-    var firstWordCapOne = lowerCaseOne[0].toUpperCase();
-    if (lowerCaseOne.replace(lowerCaseOne[0], firstWordCapOne) === data.coins[i].name) {
+    var firstCurrency = replaceSpacesWithDashes(lowerCaseOne);
+    if (firstCurrency === data.coins[i].id) {
       yourTotal = parseFloat(parseFloat(amount).toFixed(2) * parseFloat(parseFloat(data.coins[i].priceUsd).toFixed(2))).toFixed(2);
       break;
     }
@@ -155,8 +159,8 @@ function convert(event) {
 
   for (var k = 0; k < data.coins.length; k++) {
     var lowerCaseTwo = currencyTwo.toLowerCase();
-    var firstWordCapTwo = lowerCaseTwo[0].toUpperCase();
-    if (lowerCaseTwo.replace(lowerCaseTwo[0], firstWordCapTwo) === data.coins[k].name) {
+    var secondCurrency = replaceSpacesWithDashes(lowerCaseTwo);
+    if (secondCurrency === data.coins[k].id) {
       totalSymbol = data.coins[k].symbol;
       totalWorth = yourTotal / parseFloat(parseFloat(data.coins[k].priceUsd).toFixed(2));
       break;

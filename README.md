@@ -17,7 +17,7 @@ Driven by my passion for cryptocurrency and its transformative technology, I dev
 
 ## Live Demo
 
-Try the application live at [https://justinsong1608.github.io/ajax-project/](https://justinsong1608.github.io/ajax-project/)
+Try the application live at [https://justinsong1608.github.io/ajax-project/](https://justinsong1608.github.io/crypto-wallet/)
 
 ## Features
 

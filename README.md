@@ -32,8 +32,8 @@ Try the application live at [https://justinsong1608.github.io/crypto-wallet/](ht
 
 ## Preview
 
-![Crypto Wallet](images/cryptoWallet.gif)
-![Crypto Wallet Converter](images/cryptoWalletConverter.gif)
+![Crypto Wallet](images/crypto-wallet.gif)
+![Crypto Wallet Converter](images/crypto-wallet-converter.gif)
 
 ## Stretch Features I'd like to Implement
 
